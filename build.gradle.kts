@@ -7,6 +7,9 @@ plugins {
     id("gg.essential.defaults.loom")
 }
 
+// Force Java 21 for all versions (only JDK available on this machine)
+java.toolchain.languageVersion.set(JavaLanguageVersion.of(21))
+
 loom {
     noRunConfigs()
 }
