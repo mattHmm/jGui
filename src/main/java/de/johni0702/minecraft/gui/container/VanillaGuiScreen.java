@@ -24,10 +24,9 @@ import de.johni0702.minecraft.gui.versions.callbacks.PreTickCallback;
 import net.minecraft.client.util.math.MatrixStack;
 //#endif
 
-//#if FABRIC>=1
 import de.johni0702.minecraft.gui.versions.callbacks.KeyboardCallback;
 import de.johni0702.minecraft.gui.versions.callbacks.MouseCallback;
-//#elseif MC<=11202
+//#if MC<=11202
 //$$ import net.minecraftforge.client.event.GuiOpenEvent;
 //$$ import net.minecraftforge.client.event.GuiScreenEvent;
 //$$ import net.minecraftforge.fml.common.eventhandler.EventPriority;
@@ -188,9 +187,7 @@ public class VanillaGuiScreen extends GuiScreen implements Draggable, KeyHandler
     //$$ public
     //#endif
     class EventHandler extends EventRegistrations
-        //#if FABRIC>=1
         implements KeyboardCallback, MouseCallback
-        //#endif
     {
         private boolean active;
 
@@ -241,7 +238,6 @@ public class VanillaGuiScreen extends GuiScreen implements Draggable, KeyHandler
             //#endif
         }
 
-        //#if FABRIC>=1
         { on(MouseCallback.EVENT, this); }
 
         @Override
@@ -308,7 +304,7 @@ public class VanillaGuiScreen extends GuiScreen implements Draggable, KeyHandler
             return getSuperMcGui().charTyped(charInput.character, charInput.modifiers);
             //#endif
         }
-        //#elseif MC<=11202
+        //#if MC<=11202
         //$$ private boolean mouseHandled;
         //$$ private boolean keyHandled;
         //$$ private boolean charHandled;
